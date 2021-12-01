@@ -29,7 +29,11 @@
         android:id="@+id/signUpFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.authentication.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.home.HomeFragment"
