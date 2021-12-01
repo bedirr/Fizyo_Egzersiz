@@ -41,10 +41,11 @@ class ForgetPasswordFragment : Fragment(), View.OnClickListener {
                     if (task.isSuccessful) {
                         findNavController().navigateUp()
                     } else {
-                        val text = task.exception?.message
-                        val duration = Toast.LENGTH_SHORT
-                        val toast = Toast.makeText(this.requireContext(), text, duration)
-                        toast.show()
+                        Toast.makeText(
+                            this.requireContext(),
+                            task.exception?.message,
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             }

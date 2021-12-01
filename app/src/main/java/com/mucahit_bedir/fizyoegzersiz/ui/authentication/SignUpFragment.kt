@@ -1,16 +1,15 @@
 package com.mucahit_bedir.fizyoegzersiz.ui.authentication
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.mucahit_bedir.fizyoegzersiz.R
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentSignUpBinding
 
 
@@ -37,11 +36,11 @@ class SignUpFragment : Fragment(), View.OnClickListener {
         when (v) {
             binding.signupButton -> {
                 if (binding.againPasswordEditText.text.toString() != binding.passwordEditText.text.toString()) {
-                    val text = "Girdiğiniz parolalar eşleşmedi!"
-                    val duration = Toast.LENGTH_SHORT
-
-                    val toast = Toast.makeText(this.requireContext(), text, duration)
-                    toast.show()
+                    Toast.makeText(
+                        this.requireContext(),
+                        "Girdiğiniz parolalar eşleşmedi!",
+                        Toast.LENGTH_LONG
+                    ).show()
                     return
                 }
                 auth.createUserWithEmailAndPassword(
@@ -55,11 +54,11 @@ class SignUpFragment : Fragment(), View.OnClickListener {
                         findNavController().navigate(action)
 
                     } else {
-                        val text = task.exception?.message
-                        val duration = Toast.LENGTH_SHORT
-
-                        val toast = Toast.makeText(this.requireContext(), text, duration)
-                        toast.show()
+                        Toast.makeText(
+                            this.requireContext(),
+                            task.exception?.message,
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             }

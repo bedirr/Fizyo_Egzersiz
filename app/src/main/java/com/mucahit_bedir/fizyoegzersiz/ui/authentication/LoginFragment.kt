@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -16,6 +18,7 @@ import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentLoginBinding
 class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var auth: FirebaseAuth
+    private val viewModel: LoginFragmentViewModel by viewModels()
 
     private lateinit var binding: FragmentLoginBinding
 
@@ -37,31 +40,17 @@ class LoginFragment : Fragment(), View.OnClickListener {
         ).forEach {
             it.setOnClickListener(this)
         }
+        initObserver()
 
-        auth = Firebase.auth
     }
 
     override fun onClick(v: View?) {
         when (v) {
             binding.girisButton -> {
-                auth.signInWithEmailAndPassword(
-                    binding.emailEditText.text.toString(),
-                    binding.passwordEditText.text.toString()
-                ).addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            val user = auth.currentUser
-                            val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                            findNavController().navigate(action)
-
-                        } else {
-                            val text = task.exception?.message
-                            val duration = Toast.LENGTH_SHORT
-
-                            val toast = Toast.makeText(this.requireContext(), text, duration)
-                            toast.show()
-                        }
-                    }
+                viewModel.login(
+                    email = binding.emailEditText.text.toString(),
+                    password = binding.passwordEditText.text.toString()
+                )
             }
             binding.kayitButton -> {
                 val action = LoginFragmentDirections.actionLoginFragmentToSignUpFragment()
@@ -73,6 +62,22 @@ class LoginFragment : Fragment(), View.OnClickListener {
             }
         }
 
+    }
+
+    fun initObserver() {
+        viewModel.loginResponse.observe(viewLifecycleOwner) {
+            if (it.first) {
+                val action = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
+                findNavController().navigate(action)
+            }
+            else{
+                Toast.makeText(
+                    this.requireContext(),
+                    it.second,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     }
 
 }
