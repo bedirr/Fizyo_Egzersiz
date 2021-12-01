@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "894499578265",
+    "project_id": "fizyo-egzersiz",
+    "storage_bucket": "fizyo-egzersiz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894499578265:android:563167d40df129bd307308",
+        "android_client_info": {
+          "package_name": "com.mucahit_bedir.fizyoegzersiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894499578265-apu8ud64bd3fjpeq25ckkajqv9bb43go.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSSHe_r3ZCESveUsrOP1HprvAY_vQItvY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894499578265-apu8ud64bd3fjpeq25ckkajqv9bb43go.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
