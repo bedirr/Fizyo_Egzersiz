@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/exercise"
+        android:title="Egzersiz"
+        android:icon="@drawable/exercise"
+        />
+    <item
+        android:id="@+id/calendar"
+        android:title="Takvim"
+        android:icon="@drawable/calendar"
+        />
+    <item
+        android:id="@+id/notification"
+        android:title="Bildirimler"
+        android:icon="@drawable/ringing"
+        />
+    <item
+        android:id="@+id/my_account"
+        android:title="Hesabım"
+        android:icon="@drawable/user"
+        />
+
+</menu>

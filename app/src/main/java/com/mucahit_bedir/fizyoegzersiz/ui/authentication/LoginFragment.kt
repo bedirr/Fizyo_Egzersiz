@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,12 +14,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentLoginBinding
+import com.mucahit_bedir.fizyoegzersiz.ui.SharedViewModel
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var auth: FirebaseAuth
     private val viewModel: LoginFragmentViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     private lateinit var binding: FragmentLoginBinding
 
@@ -33,6 +36,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sharedViewModel.setBottomNavVisibility(false)
+
         listOf(
             binding.girisButton,
             binding.kayitButton,
