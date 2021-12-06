@@ -11,13 +11,20 @@
         android:icon="@drawable/calendar"
         />
     <item
+        android:id="@+id/home"
+        android:title="Ana Sayfa"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:checked="true"
+        />
+
+    <item
         android:id="@+id/notification"
         android:title="Bildirimler"
         android:icon="@drawable/ringing"
         />
     <item
-        android:id="@+id/my_account"
-        android:title="Hesabım"
+        android:id="@+id/profile"
+        android:title="Profil"
         android:icon="@drawable/user"
         />
 

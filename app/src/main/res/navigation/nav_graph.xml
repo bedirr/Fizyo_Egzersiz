@@ -39,4 +39,39 @@
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <action
+        android:id="@+id/action_global_profileFragment"
+        app:destination="@id/profileFragment" />
+    <fragment
+        android:id="@+id/egzersizFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizFragment"
+        android:label="fragment_egzersiz"
+        tools:layout="@layout/fragment_egzersiz" />
+    <action
+        android:id="@+id/action_global_egzersizFragment"
+        app:destination="@id/egzersizFragment" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.calendar.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_calendar" />
+    <action
+        android:id="@+id/action_global_calendarFragment"
+        app:destination="@id/calendarFragment" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <action
+        android:id="@+id/action_global_notificationFragment"
+        app:destination="@id/notificationFragment" />
 </navigation>
