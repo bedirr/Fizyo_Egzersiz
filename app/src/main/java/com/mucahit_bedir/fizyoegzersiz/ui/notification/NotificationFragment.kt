@@ -1,4 +1,4 @@
-package com.mucahit_bedir.fizyoegzersiz.ui
+package com.mucahit_bedir.fizyoegzersiz.ui.notification
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.mucahit_bedir.fizyoegzersiz.R
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentNotificationBinding
+import com.mucahit_bedir.fizyoegzersiz.ui.SharedViewModel
 
 
 class NotificationFragment : Fragment() {

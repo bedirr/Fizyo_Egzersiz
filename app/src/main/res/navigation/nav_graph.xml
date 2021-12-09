@@ -46,7 +46,17 @@
         android:id="@+id/profileFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
     <action
         android:id="@+id/action_global_profileFragment"
         app:destination="@id/profileFragment" />
@@ -68,10 +78,25 @@
         app:destination="@id/calendarFragment" />
     <fragment
         android:id="@+id/notificationFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.NotificationFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.notification.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
     <action
         android:id="@+id/action_global_notificationFragment"
         app:destination="@id/notificationFragment" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

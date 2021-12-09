@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.egzersiz.EgzersizFragment">
+    tools:context=".ui.profile.SettingsFragment">
 
     <TextView
-        android:id="@+id/egzersiz_textView"
-        android:layout_width="161dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/settings_text_view"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="124dp"
         android:gravity="center"
-        android:text="EGZERSİZLER"
+        android:text="SETTİNGS"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
