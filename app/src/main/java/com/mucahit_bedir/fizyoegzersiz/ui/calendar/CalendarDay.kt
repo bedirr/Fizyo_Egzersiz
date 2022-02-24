@@ -5,5 +5,5 @@ import java.util.*
 data class CalendarDay(
     val date: Date,
     val dayNumber: Int,
-    val isThereTraining: Boolean
+      val isThereTraining: Boolean
 )

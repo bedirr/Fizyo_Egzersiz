@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mucahit_bedir.fizyoegzersiz.databinding.ItemViewSelectDaysBinding
 import com.mucahit_bedir.fizyoegzersiz.util.GenericDiffUtil
+import java.text.SimpleDateFormat
 
 class CalendarDaysAdapter(private val listAdapterListener: (CalendarDay) -> Unit) :
     ListAdapter<CalendarDay, CalendarDaysAdapter.CalendarDaysViewHolder>(GenericDiffUtil<CalendarDay>()) {
@@ -25,7 +26,9 @@ class CalendarDaysAdapter(private val listAdapterListener: (CalendarDay) -> Unit
         fun bind(item: CalendarDay?) {
             with(item) {
                 binding.dayNumberTextView.text = this?.dayNumber.toString()
-                binding.dayNameTextView.text = this?.date.toString()
+                val outFormat = SimpleDateFormat("EEEE")
+                val goal: String = outFormat.format(this?.date)
+                binding.dayNameTextView.text = goal
                 binding.isThereTrainingView.visibility =
                     if (this?.isThereTraining == true) View.VISIBLE else View.INVISIBLE
             }

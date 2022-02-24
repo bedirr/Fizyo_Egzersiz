@@ -11,10 +11,11 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/bel_agrisi_cardview"
+            android:id="@+id/bel_agrisi_cardview_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
+            android:clickable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,15 +51,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/omuz_agrisi_cardview"
+            android:id="@+id/omuz_agrisi_cardview_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:clickable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bel_agrisi_cardview">
+            app:layout_constraintTop_toBottomOf="@+id/bel_agrisi_cardview_button">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -89,15 +91,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/diz_agrisi_cardview"
+            android:id="@+id/diz_agrisi_cardview_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:clickable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/omuz_agrisi_cardview">
+            app:layout_constraintTop_toBottomOf="@+id/omuz_agrisi_cardview_button">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -129,15 +132,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/sirt_agrisi_cardview"
+            android:id="@+id/sirt_agrisi_cardview_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:clickable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/diz_agrisi_cardview">
+            app:layout_constraintTop_toBottomOf="@+id/diz_agrisi_cardview_button">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
@@ -169,14 +173,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/boyun_agrisi_cardview_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:clickable="true"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sirt_agrisi_cardview">
+            app:layout_constraintTop_toBottomOf="@+id/sirt_agrisi_cardview_button">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
