@@ -7,4 +7,25 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!--Custom Color for Fizyo Egzersiz-->
+    <color name="backgroundLight">#DFDFDF</color>
+    <color name="backgroundDark">#424242</color>
+    <color name="dumbellTint">#0800AEA9</color>
+
+    <color name="colorPrimary">#00aea9</color>
+    <color name="colorPrimaryDark">#FF018786</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="lightBlack">#424242</color>
+    <color name="fizyoBlue">#00aea9</color>
+    <color name="fizyoPurple">#712980</color>
+    <color name="fizyoOrange">#e35525</color>
+    <color name="fizyoGreen">#75bc43</color>
+    <color name="fizyoGreen2">#3ac852</color>
+    <color name="fizyoTextColorBold">#252c35</color>
+    <color name="fizyoTextColorLight">#838383</color>
+    <color name="pink">#d21772</color>
+    <color name="lightGrayW50">#DFDFE0</color>
+    <color name="listGray">#f7f7f7</color>
+    <color name="chartGreen">#cbdcbe</color>
+    <color name="text_button_blue">#0f83fe</color>
 </resources>
