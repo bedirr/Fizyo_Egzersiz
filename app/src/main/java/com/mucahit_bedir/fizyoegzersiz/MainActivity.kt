@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-        binding.bottomNavigationView.setOnItemReselectedListener {
+        binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.profile -> {
                     navController.navigate(R.id.action_global_profileFragment)
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.action_global_notificationFragment)
                 }
             }
+            return@setOnItemSelectedListener true
         }
     }
 

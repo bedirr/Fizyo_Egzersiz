@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/home"
+        android:checked="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Ana Sayfa" />
+    <item
         android:id="@+id/exercise"
-        android:title="Egzersiz"
         android:icon="@drawable/exercise"
-        />
+        android:title="Egzersiz" />
     <item
         android:id="@+id/calendar"
-        android:title="Takvim"
         android:icon="@drawable/calendar"
-        />
-    <item
-        android:id="@+id/home"
-        android:title="Ana Sayfa"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:checked="true"
-        />
-
+        android:title="Takvim" />
     <item
         android:id="@+id/notification"
-        android:title="Bildirimler"
         android:icon="@drawable/ringing"
-        />
+        android:title="Bildirimler" />
     <item
         android:id="@+id/profile"
-        android:title="Profil"
         android:icon="@drawable/user"
-        />
-
+        android:title="Profil" />
 </menu>
