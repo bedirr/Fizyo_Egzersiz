@@ -104,13 +104,23 @@
             android:label="fragment_egzersiz"
             tools:layout="@layout/fragment_egzersiz">
             <action
-                android:id="@+id/action_egzersizFragment_to_egzersizDetayFragment"
-                app:destination="@id/egzersizDetayFragment" />
+                android:id="@+id/action_egzersizFragment_to_egzersizSeviyelerFragment"
+                app:destination="@id/egzersizSeviyelerFragment" />
         </fragment>
         <fragment
-            android:id="@+id/egzersizDetayFragment"
+            android:id="@+id/egzersizSeviyelerFragment"
             android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizSeviyelerFragment"
             android:label="StartWorkflowFormFragment"
-            tools:layout="@layout/fragment_egzersiz_seviyeler" />
+            tools:layout="@layout/fragment_egzersiz_seviyeler" >
+            <action
+                android:id="@+id/action_egzersizSeviyelerFragment_to_egzersizVideolarFragmen"
+                app:destination="@id/egzersizVideolarFragment" />
+        </fragment>
+        yolunu mu ve sal amk
+        <fragment
+            android:id="@+id/egzersizVideolarFragment"
+            android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizVideolarFragment"
+            android:label="StartWorkflowFormFragment"
+            tools:layout="@layout/fragment_egzersiz_videolar" />
     </navigation>
 </navigation>

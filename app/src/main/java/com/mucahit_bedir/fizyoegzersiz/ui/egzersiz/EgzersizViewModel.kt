@@ -15,6 +15,7 @@ class EgzersizViewModel : ViewModel() {
     val db = FirebaseFirestore.getInstance()
 
     var selectedEgzersiz: EgzersizListeResponse? = null
+    var selectedEgzersizSeviye: EgzersizListeResponse.ItemEgzersizler? = null
 
     private val _egzersizListesiResponse = MutableLiveData<ArrayList<EgzersizListeResponse>>()
     val egzersizListesiResponse: LiveData<ArrayList<EgzersizListeResponse>> =

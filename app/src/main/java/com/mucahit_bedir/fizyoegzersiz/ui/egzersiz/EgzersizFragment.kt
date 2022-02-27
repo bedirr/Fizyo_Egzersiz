@@ -42,7 +42,7 @@ class EgzersizFragment : Fragment(), View.OnClickListener{
         sharedViewModel.setBottomNavVisibility(true)
         egzersizListeAdapter = EgzersizListeAdapter {
             egzersizViewModel.selectedEgzersiz = it
-            val action = EgzersizFragmentDirections.actionEgzersizFragmentToEgzersizDetayFragment()
+            val action = EgzersizFragmentDirections.actionEgzersizFragmentToEgzersizSeviyelerFragment()
             findNavController().navigate(action)
         }
         binding.egzersizListRecyclerView.adapter = egzersizListeAdapter
