@@ -14,12 +14,23 @@ class EgzersizViewModel : ViewModel() {
 
     val db = FirebaseFirestore.getInstance()
 
+    var selectedEgzersiz: EgzersizListeResponse? = null
+
     private val _egzersizListesiResponse = MutableLiveData<ArrayList<EgzersizListeResponse>>()
     val egzersizListesiResponse: LiveData<ArrayList<EgzersizListeResponse>> =
         _egzersizListesiResponse
 
 
+    fun addDataInFireStore(){
+        db.collection("fizyoEgzersiz").document("rahatsizliklar")
+            .set(EgzersizListeResponse.mockEgzersizListeResponse())
+            .addOnSuccessListener { Log.d("TAG", "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w("TAG", "Error writing document", e) }
+    }
+
     fun getEgzersizListesi() {
+        _egzersizListesiResponse.postValue(EgzersizListeResponse.mockEgzersizListeResponse())
+    /*
         db.collection("fizyoEgzersiz")
             .get()
             .addOnCompleteListener(OnCompleteListener<QuerySnapshot> { task ->
@@ -30,12 +41,12 @@ class EgzersizViewModel : ViewModel() {
                         if (result != null) {
                             val tempListeResponse = arrayListOf<EgzersizListeResponse>()
                             (result as List<Map<String, String>>).forEach {
-                                tempListeResponse.add(
+                                *//*tempListeResponse.add(
                                     EgzersizListeResponse(
                                         name = it["name"].toString(),
                                         imageURL = it.get("imageURL").toString()
                                     )
-                                )
+                                )*//*
                             }
                             _egzersizListesiResponse.postValue(tempListeResponse)
                         }
@@ -47,7 +58,7 @@ class EgzersizViewModel : ViewModel() {
                 }
             }).addOnFailureListener {
                 it.printStackTrace()
-            }
+            }*/
     }
 
 }

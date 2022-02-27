@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.authentication.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -29,7 +29,7 @@
         android:id="@+id/signUpFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.authentication.SignUpFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" >
+        tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -46,7 +46,7 @@
         android:id="@+id/profileFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
@@ -60,31 +60,9 @@
     <action
         android:id="@+id/action_global_profileFragment"
         app:destination="@id/profileFragment" />
-    <fragment
-        android:id="@+id/egzersizFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizFragment"
-        android:label="fragment_egzersiz"
-        tools:layout="@layout/fragment_egzersiz" >
-        <action
-            android:id="@+id/action_egzersizFragment_to_boyunAgrisiFragment"
-            app:destination="@id/boyunAgrisiFragment" />
-        <action
-            android:id="@+id/action_egzersizFragment_to_sirtAgrisiFragment"
-            app:destination="@id/sirtAgrisiFragment" />
-        <action
-            android:id="@+id/action_egzersizFragment_to_dizAgrisiFragment"
-            app:destination="@id/dizAgrisiFragment" />
-        <action
-            android:id="@+id/action_egzersizFragment_to_omuzAgrisiFragment"
-            app:destination="@id/omuzAgrisiFragment" />
-        <action
-            android:id="@+id/action_egzersizFragment_to_belAgrisiFragment"
-            app:destination="@id/belAgrisiFragment" />
-    </fragment>
-
     <action
         android:id="@+id/action_global_egzersizFragment"
-        app:destination="@id/egzersizFragment" />
+        app:destination="@id/egzersiz_graph" />
     <fragment
         android:id="@+id/calendarFragment"
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.calendar.CalendarFragment"
@@ -116,30 +94,23 @@
         android:name="com.mucahit_bedir.fizyoegzersiz.ui.profile.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
-    <fragment
-        android:id="@+id/boyunAgrisiFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.boyun_agrisi.BoyunAgrisiFragment"
-        android:label="fragment_boyun_agrisi"
-        tools:layout="@layout/fragment_boyun_agrisi" />
-    <fragment
-        android:id="@+id/belAgrisiFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.bel_agrisi.BelAgrisiFragment"
-        android:label="fragment_bel_agrisi"
-        tools:layout="@layout/fragment_bel_agrisi" />
-    <fragment
-        android:id="@+id/sirtAgrisiFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.sirt_agrisi.SirtAgrisiFragment"
-        android:label="fragment_sirt_agrisi"
-        tools:layout="@layout/fragment_sirt_agrisi" />
-    <fragment
-        android:id="@+id/omuzAgrisiFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.omuz_agrisi.OmuzAgrisiFragment"
-        android:label="fragment_omuz_agrisi"
-        tools:layout="@layout/fragment_omuz_agrisi" />
-    <fragment
-        android:id="@+id/dizAgrisiFragment"
-        android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.diz_agrisi.DizAgrisiFragment"
-        android:label="fragment_diz_agrisi"
-        tools:layout="@layout/fragment_diz_agrisi" />
 
+    <navigation
+        android:id="@+id/egzersiz_graph"
+        app:startDestination="@id/egzersizFragment">
+        <fragment
+            android:id="@+id/egzersizFragment"
+            android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizFragment"
+            android:label="fragment_egzersiz"
+            tools:layout="@layout/fragment_egzersiz">
+            <action
+                android:id="@+id/action_egzersizFragment_to_egzersizDetayFragment"
+                app:destination="@id/egzersizDetayFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/egzersizDetayFragment"
+            android:name="com.mucahit_bedir.fizyoegzersiz.ui.egzersiz.EgzersizSeviyelerFragment"
+            android:label="StartWorkflowFormFragment"
+            tools:layout="@layout/fragment_egzersiz_seviyeler" />
+    </navigation>
 </navigation>

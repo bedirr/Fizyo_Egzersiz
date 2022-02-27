@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import com.google.firebase.firestore.FirebaseFirestore
+import com.mucahit_bedir.fizyoegzersiz.R
 import com.mucahit_bedir.fizyoegzersiz.data.web.model.EgzersizListeResponse
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentEgzersizBinding
 import com.mucahit_bedir.fizyoegzersiz.ui.SharedViewModel
@@ -18,7 +20,9 @@ class EgzersizFragment : Fragment(), View.OnClickListener{
 
     private lateinit var binding: FragmentEgzersizBinding
     private val sharedViewModel: SharedViewModel by activityViewModels()
-    private val egzersizViewModel: EgzersizViewModel by viewModels()
+    private val egzersizViewModel: EgzersizViewModel by navGraphViewModels(
+        R.id.egzersiz_graph
+    )
 
 
     override fun onCreateView(
@@ -37,7 +41,9 @@ class EgzersizFragment : Fragment(), View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
         egzersizListeAdapter = EgzersizListeAdapter {
-
+            egzersizViewModel.selectedEgzersiz = it
+            val action = EgzersizFragmentDirections.actionEgzersizFragmentToEgzersizDetayFragment()
+            findNavController().navigate(action)
         }
         binding.egzersizListRecyclerView.adapter = egzersizListeAdapter
         initObserver()

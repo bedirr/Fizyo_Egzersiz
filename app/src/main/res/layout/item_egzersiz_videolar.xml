@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview_button"
@@ -7,36 +6,30 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:clickable="true"
-    android:focusable="true"
     app:cardCornerRadius="20dp"
     app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp">
 
-        <ImageView
-            android:id="@+id/imageview"
+        <VideoView
+            android:id="@+id/video_videoview"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bel_agrisi"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
+<!--dün kü kodları commitle önce-->
         <TextView
-            android:id="@+id/title_textview"
-            android:layout_width="match_parent"
+
+            android:id="@+id/video_aciklama_textview"
+            android:layout_width="wrap_content"
+            android:text="Açıklama dsgıofdgos"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="16dp"
-            android:text="Bel Ağrısı"
-            android:textColor="#F6D8D8"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageview"
-            app:layout_constraintStart_toStartOf="@+id/imageview" />
+            app:layout_constraintEnd_toEndOf="@id/video_videoview"
+            app:layout_constraintStart_toStartOf="@id/video_videoview"
+            app:layout_constraintBottom_toBottomOf="@+id/video_videoview" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
