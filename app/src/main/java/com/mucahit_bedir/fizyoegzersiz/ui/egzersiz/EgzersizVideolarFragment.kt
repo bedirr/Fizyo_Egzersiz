@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.mucahit_bedir.fizyoegzersiz.R
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentEgzersizVideolarBinding
@@ -32,7 +33,7 @@ class EgzersizVideolarFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
         egzersizVideolarAdapter = EgzersizVideolarAdapter {
-
+            findNavController().navigate(R.id.action_egzersizVideolarFragment_to_programEkleDialogFragment)
         }
         binding.egzersizVideolarRecyclerView.adapter = egzersizVideolarAdapter
 

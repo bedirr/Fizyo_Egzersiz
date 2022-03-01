@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardview_button"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    app:cardUseCompatPadding="true"
-    app:cardCornerRadius="2dp"
-    app:cardElevation="2dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
 
-    <FrameLayout
-        android:paddingBottom="2dp"
-        android:background="@color/colorPrimary"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="vertical"
+        android:layout_height="200dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/idExoPlayerVIew"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:text="açıklama"
-                android:id="@+id/video_aciklama_textview"
-                android:textSize="15sp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/video_exoplayer_view"
-                app:resize_mode="fill"
-                android:layout_gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="220dp"/>
-        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </FrameLayout>
+    <TextView
+        android:id="@+id/video_aciklama_textview"
+        android:layout_width="224dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="3dp"
+        android:text="açıklamadssjf edjshtıfwelsrjowerk"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardview_button" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/add_program_button"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="150dp"
+        android:layout_height="42dp"
+        android:clickable="true"
+        android:drawableStart="@drawable/ic_baseline_playlist_add_24"
+        android:drawableTint="@color/black"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="Programa Ekle"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/video_aciklama_textview"
+        app:layout_constraintTop_toBottomOf="@+id/cardview_button" />
 
 
-
-</androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>

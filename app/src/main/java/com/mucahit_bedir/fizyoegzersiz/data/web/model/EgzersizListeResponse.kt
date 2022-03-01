@@ -38,7 +38,7 @@ data class EgzersizListeResponse(
                                 ItemEgzersizler.EgzersizVideo(
                                     name = "video 2",
                                     imageURL = "https://acilci.net/wp-content/uploads/2016/11/sirt-agrilari-neden-olur-300x149.jpg",
-                                    videoURL = "http://techslides.com/demos/sample-videos/small.mp4"
+                                    videoURL = "https://firebasestorage.googleapis.com/v0/b/fizyo-egzersiz.appspot.com/o/IMG_E3857.mp4?alt=media&token=c5535aeb-48fd-4bbb-9f9d-deb4309005d2"
                                 )
                             )
                         ),

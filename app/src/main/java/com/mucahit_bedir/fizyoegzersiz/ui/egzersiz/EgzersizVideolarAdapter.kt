@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.MediaController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
 import com.mucahit_bedir.fizyoegzersiz.data.web.model.EgzersizListeResponse
 import com.mucahit_bedir.fizyoegzersiz.databinding.ItemEgzersizVideolarBinding
 import com.mucahit_bedir.fizyoegzersiz.util.GenericDiffUtil
@@ -30,26 +32,16 @@ class EgzersizVideolarAdapter(private val listAdapterListener: (EgzersizListeRes
         ) {
             with(item) {
                 binding.videoAciklamaTextview.text = name
-            }
-            binding.videoExoplayerView.setOnErrorListener { mediaPlayer, i, i2 ->
-                    true
-            }
-            binding.videoExoplayerView.setOnClickListener {
-                listAdapterListener(item)
-                val uri: Uri = Uri.parse(item.videoURL)
-                try {
-
-                    binding.videoExoplayerView.setMediaController(MediaController(binding.root.context))
-                } catch (e: Exception) {
-                    /* bu hata veriyor sürekli başka bir video oynatıcı bul burada çalıştırmaya çalış ben dışarı çıkcam akşam gelirim ben yokken işlerini tamamla*/
+                binding.addProgramButton.setOnClickListener{
+                    listAdapterListener(item)
                 }
-                binding.videoExoplayerView.setVideoURI(uri)
-                binding.videoExoplayerView.requestFocus()
-                binding.videoExoplayerView.start()
-                /*
-                tamamdır gerisi sende
-                senimi beklicem giriş yap
-                 */
+                val player = ExoPlayer.Builder(binding.root.context).build()
+                binding.idExoPlayerVIew.player = player
+                val mediaItem: MediaItem = MediaItem.fromUri(videoURL)
+                player.setMediaItem(mediaItem)
+                player.prepare()
+                //player.playWhenReady = true
+
             }
         }
 
@@ -64,4 +56,5 @@ class EgzersizVideolarAdapter(private val listAdapterListener: (EgzersizListeRes
             }
         }
     }
+
 }
