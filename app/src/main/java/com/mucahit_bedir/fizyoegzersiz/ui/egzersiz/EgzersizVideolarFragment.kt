@@ -32,6 +32,7 @@ class EgzersizVideolarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
+        egzersizViewModel.setContext(requireContext())
         egzersizVideolarAdapter = EgzersizVideolarAdapter {
             findNavController().navigate(R.id.action_egzersizVideolarFragment_to_programEkleDialogFragment)
         }

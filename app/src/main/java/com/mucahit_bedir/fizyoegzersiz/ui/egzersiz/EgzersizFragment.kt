@@ -40,6 +40,7 @@ class EgzersizFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
+        egzersizViewModel.setContext(requireContext())
         egzersizListeAdapter = EgzersizListeAdapter {
             egzersizViewModel.selectedEgzersiz = it
             val action = EgzersizFragmentDirections.actionEgzersizFragmentToEgzersizSeviyelerFragment()

@@ -6,32 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".ui.egzersiz.ProgramaEkleDialogFragment">
 
+    <Spinner
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/haftalar_spinner"
+        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <LinearLayout
+        android:id="@+id/linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        app:layout_constraintTop_toBottomOf="@id/haftalar_spinner"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/checkbox_pazartesi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:text="Pazartesi" />
+        <CheckBox
+            android:id="@+id/checkbox_sali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salı" />
+        <CheckBox
+            android:id="@+id/checkbox_carsamba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Çarşamba" />
+        <CheckBox
+            android:id="@+id/checkbox_persembe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perşembe" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/checkbox_cuma"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:text="Cuma" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/checkbox_cumartesi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:text="Cumartesi" />
 
-        <TextView
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/checkbox_pazar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_blank_fragment" />
+            android:text="Pazar" />
+
 
     </LinearLayout>
-    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/iptal_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="İptal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tamam_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout" />
+
+    <Button
+        android:id="@+id/tamam_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Tamam"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iptal_button"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

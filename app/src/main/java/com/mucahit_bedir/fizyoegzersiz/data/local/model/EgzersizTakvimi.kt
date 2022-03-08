@@ -6,10 +6,11 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class EgzersizTakvimi(
-    @PrimaryKey(autoGenerate = true) val uid: Int,
     @ColumnInfo(name = "tarih") val tarih: String,
     @ColumnInfo(name = "egzersizAdi") val egzersizAdi: String?,
     @ColumnInfo(name = "videoURL") val videoURL: String?,
     @ColumnInfo(name = "tamamlandimi") val tamamlandimi: Boolean?
-)
+){
+    @PrimaryKey(autoGenerate = true) var uid: Int?=-1
+}
 

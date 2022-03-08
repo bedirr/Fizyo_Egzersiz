@@ -33,6 +33,7 @@ class EgzersizSeviyelerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
+        egzersizViewModel.setContext(requireContext())
         egzersizSeviyelerAdapter = EgzersizSeviyelerAdapter {
             egzersizViewModel.selectedEgzersizSeviye = it
             val action = EgzersizSeviyelerFragmentDirections.actionEgzersizSeviyelerFragmentToEgzersizVideolarFragmen()
