@@ -34,6 +34,7 @@ class EgzersizVideolarFragment : Fragment() {
         sharedViewModel.setBottomNavVisibility(true)
         egzersizViewModel.setContext(requireContext())
         egzersizVideolarAdapter = EgzersizVideolarAdapter {
+            egzersizViewModel.selectedEgzersizVideo = it
             findNavController().navigate(R.id.action_egzersizVideolarFragment_to_programEkleDialogFragment)
         }
         binding.egzersizVideolarRecyclerView.adapter = egzersizVideolarAdapter

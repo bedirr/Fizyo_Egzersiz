@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -53,6 +54,13 @@ class ProgramaEkleDialogFragment : DialogFragment(), AdapterView.OnItemSelectedL
             binding.iptalButton
         ).forEach {
             it.setOnClickListener(this)
+        }
+        egzersizViewModel.sonucLiveData.observe(viewLifecycleOwner){
+            if (it.second.not()){
+                Toast.makeText(requireContext(),"Exception",Toast.LENGTH_LONG).show()
+            }else{
+                findNavController().navigateUp()
+            }
         }
 
     }

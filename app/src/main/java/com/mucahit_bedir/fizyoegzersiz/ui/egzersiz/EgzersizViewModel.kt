@@ -56,7 +56,7 @@ class EgzersizViewModel : ViewModel() {
                         videoURL = programEkle.egzersiz?.videoURL ?: "",
                         tamamlandimi = false
                     )
-                    when (calendar.get(Calendar.DAY_OF_MONTH)) {
+                    when (calendar.get(Calendar.DAY_OF_WEEK)) {
                         1 -> {
                             if (programEkle.isCheckPazartesi)
                                 tempList.add(egzersizTakvimi)

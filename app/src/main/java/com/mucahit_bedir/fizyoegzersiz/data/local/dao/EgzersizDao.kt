@@ -6,7 +6,7 @@ import com.mucahit_bedir.fizyoegzersiz.data.local.model.EgzersizTakvimi
 @Dao
 interface EgzersizDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertEgzersizTakvimi(EgzersizTakvimiList: List<EgzersizTakvimi>)
 
     @Update
