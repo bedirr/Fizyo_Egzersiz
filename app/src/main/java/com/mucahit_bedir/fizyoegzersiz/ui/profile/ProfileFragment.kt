@@ -33,9 +33,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
         listOf(
-            binding.editProfileButton,
-            binding.settingsButton,
-            binding.locationButton,
             binding.cikisButton
         ).forEach {
             it.setOnClickListener(this)
@@ -44,21 +41,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when (view) {
-            binding.editProfileButton -> {
-                val action = ProfileFragmentDirections.actionProfileFragmentToEditProfileFragment()
-                findNavController().navigate(action)
-            }
-            binding.settingsButton -> {
-                val action=ProfileFragmentDirections.actionProfileFragmentToSettingsFragment()
-                findNavController().navigate(action)
-            }
 
-            binding.locationButton->{
-                val action=ProfileFragmentDirections.actionProfileFragmentToLocationFragment()
-                findNavController().navigate(action)
-            }
-        }
     }
 
 

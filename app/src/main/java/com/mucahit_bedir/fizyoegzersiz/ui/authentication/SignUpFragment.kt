@@ -63,7 +63,7 @@ class SignUpFragment : Fragment(), View.OnClickListener {
     fun initObserver() {
         viewModel.signUpResponse.observe(viewLifecycleOwner) {
             if (it.first) {
-                val action = SignUpFragmentDirections.actionSignUpFragmentToHomeFragment()
+                val action = SignUpFragmentDirections.actionSignUpFragmentToUserInformationFragment()
                 findNavController().navigate(action)
             } else {
                 Toast.makeText(

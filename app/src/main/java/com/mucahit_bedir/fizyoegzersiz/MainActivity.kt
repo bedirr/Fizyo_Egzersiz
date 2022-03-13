@@ -10,7 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.mucahit_bedir.fizyoegzersiz.databinding.ActivityMainBinding
 import com.mucahit_bedir.fizyoegzersiz.ui.SharedViewModel
 
-class MainActivity : AppCompatActivity() {
+class   MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: SharedViewModel by viewModels()

@@ -28,53 +28,179 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_photo_image_view" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/edit_profile_button"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/name_informations_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="35dp"
-        android:clickable="true"
-        android:drawableStart="@drawable/ic_baseline_edit_24"
-        android:drawableTint="@color/black"
-        android:focusable="true"
-        android:text="Edit Profile"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/user_name_text_view">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/settings_button"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="5dp"
-        android:clickable="true"
-        android:drawableStart="@drawable/ic_baseline_settings_24"
-        android:drawableTint="@color/black"
-        android:focusable="true"
-        android:text="Settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_profile_button" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="İsim       "
+            android:textColor="@color/fizyoTextColorBold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/location_button"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/isim_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="dfdsddd"
+            android:textColor="@color/fizyoTextColorLight"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/surname_informations_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginTop="5dp"
-        android:clickable="true"
-        android:drawableStart="@drawable/ic_baseline_location_on_24"
-        android:drawableTint="@color/black"
-        android:focusable="true"
-        android:text="Location"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings_button" />
+        app:layout_constraintTop_toBottomOf="@+id/name_informations_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Soyisim"
+            android:textColor="@color/fizyoTextColorBold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/soyisim_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="dskgsjgkljsdflgk"
+            android:textColor="@color/fizyoTextColorLight"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/birth_informations_layout"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/surname_informations_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="D.Tarihi "
+            android:textColor="@color/fizyoTextColorBold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dogum_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="dskgsjgkljsdflgk"
+            android:textColor="@color/fizyoTextColorLight"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/boy_informations_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/birth_informations_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Boy        "
+            android:textColor="@color/fizyoTextColorBold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/boy_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="dskgsjgkljsdflgk"
+            android:textColor="@color/fizyoTextColorLight"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/kilo_informations_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boy_informations_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Kilo        "
+            android:textColor="@color/fizyoTextColorBold"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/kilo_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="dskgsjgkljsdflgk"
+            android:textColor="@color/fizyoTextColorLight"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
     <com.google.android.material.textview.MaterialTextView
@@ -82,7 +208,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="5dp"
         android:clickable="true"
         android:drawableStart="@drawable/ic_baseline_exit_to_app_24"
@@ -91,6 +217,6 @@
         android:text="Çıkış"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_button" />
+        app:layout_constraintTop_toBottomOf="@+id/kilo_informations_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
