@@ -1,5 +1,6 @@
 package com.mucahit_bedir.fizyoegzersiz.ui.authentication
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Build
 import android.os.Bundle
@@ -13,7 +14,11 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserInfo
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.auth.User
+import com.google.firebase.ktx.Firebase
 import com.mucahit_bedir.fizyoegzersiz.R
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentNotificationBinding
 import com.mucahit_bedir.fizyoegzersiz.databinding.FragmentUserInformationBinding
@@ -47,8 +52,30 @@ class UserInformationFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(false)
-        binding.devamButton.setOnClickListener(this)
 
+
+        auth= FirebaseAuth.getInstance()
+        val uid = auth.currentUser?.uid
+        dataBaseReference=FirebaseDatabase.getInstance().getReference("Users")
+        binding.devamButton.setOnClickListener {
+            val isim = binding.isimEditText.text.toString()
+            val soyisim = binding.soyisimEditText.text.toString()
+            val dogum = binding.dogumTarihiEditText.text.toString()
+            val boy = binding.boyEditText.text.toString()
+            val kilo = binding.kiloEditText.text.toString()
+
+            val user = com.mucahit_bedir.fizyoegzersiz.data.User(isim,soyisim,dogum,boy,kilo)
+            if (uid != null){
+
+                dataBaseReference.child(uid).setValue(user).addOnCompleteListener {
+                    if (it.isSuccessful){
+                        val action= UserInformationFragmentDirections.actionGlobalHomeFragment()
+                        findNavController().navigate(action)
+                    }
+                }
+            }
+
+        }
 
 
         val dateSetListener = object : DatePickerDialog.OnDateSetListener {
@@ -80,9 +107,14 @@ class UserInformationFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val action= UserInformationFragmentDirections.actionGlobalHomeFragment()
-        findNavController().navigate(action)
+        TODO("Not yet implemented")
     }
+
+
+    /*
+    val action= UserInformationFragmentDirections.actionGlobalHomeFragment()
+    findNavController().navigate(action)
+*/
 
 
 }
