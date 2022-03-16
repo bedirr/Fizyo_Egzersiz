@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -20,12 +21,9 @@ import com.mucahit_bedir.fizyoegzersiz.ui.authentication.LoginFragmentDirections
 
 class ProfileFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentProfileBinding
+    private val profileFragmentViewModel: ProfileFragmentViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var user: User
-    private lateinit var uid: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,15 +38,8 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(true)
-
-        auth = FirebaseAuth.getInstance()
-        uid = auth.currentUser?.uid.toString()
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users")
-        if (uid.isNotEmpty()){
-            getUserData()
-        }
-
+        initObserver()
+        profileFragmentViewModel.getUserData()
         listOf(
             binding.cikisButton
         ).forEach {
@@ -57,24 +48,18 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     }
 
-    private fun getUserData() {
-        databaseReference.child(uid).addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                user = snapshot.getValue(User::class.java)!!
-                binding.userFullnameTextView.setText(user.isim + " " + user.soyisim)
-                binding.isimTextView.setText(user.isim)
-                binding.soyisimTextView.setText(user.soyisim)
-                binding.dogumTextView.setText(user.dogum)
-                binding.boyTextView.setText(user.boy)
-                binding.kiloTextView.setText(user.kilo)
-            }
+    fun initObserver() {
+        profileFragmentViewModel.userResponse.observe(viewLifecycleOwner) { user ->
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        })
+            binding.userFullnameTextView.text = user.isim + " " + user.soyisim
+            binding.isimTextView.text = user.isim
+            binding.soyisimTextView.text = user.soyisim
+            binding.dogumTextView.text = user.dogum
+            binding.boyTextView.text = user.boy
+            binding.kiloTextView.text = user.kilo
+        }
     }
+
 
     override fun onClick(view: View?) {
 

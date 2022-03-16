@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginFragmentViewModel : ViewModel() {
     private val auth = Firebase.auth
+
     private val _loginResponse = MutableLiveData<Pair<Boolean, String>>()
     val loginResponse: LiveData<Pair<Boolean, String>> = _loginResponse
 
