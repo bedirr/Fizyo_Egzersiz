@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserInfo
@@ -35,10 +36,16 @@ import java.util.*
 class UserInformationFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentUserInformationBinding
     private val sharedViewModel: SharedViewModel by activityViewModels()
-    private lateinit var auth: FirebaseAuth
-    private lateinit var dataBaseReference: DatabaseReference
-
-    val cal = Calendar.getInstance()
+    private val userInformationFragmentViewModel: UserInformationFragmentViewModel by viewModels()
+    private val dateSetListener: DatePickerDialog.OnDateSetListener by lazy {
+        val cal = Calendar.getInstance()
+        DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            cal.set(Calendar.YEAR, year)
+            cal.set(Calendar.MONTH, month)
+            cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateDateInView(cal)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,44 +59,38 @@ class UserInformationFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sharedViewModel.setBottomNavVisibility(false)
+        initObserver()
 
-
-        auth= FirebaseAuth.getInstance()
-        val uid = auth.currentUser?.uid
-        dataBaseReference=FirebaseDatabase.getInstance().getReference("Users")
-        binding.devamButton.setOnClickListener {
-            val isim = binding.isimEditText.text.toString()
-            val soyisim = binding.soyisimEditText.text.toString()
-            val dogum = binding.dogumTarihiEditText.text.toString()
-            val boy = binding.boyEditText.text.toString()
-            val kilo = binding.kiloEditText.text.toString()
-
-            val user = com.mucahit_bedir.fizyoegzersiz.data.User(isim,soyisim,dogum,boy,kilo)
-            if (uid != null){
-
-                dataBaseReference.child(uid).setValue(user).addOnCompleteListener {
-                    if (it.isSuccessful){
-                        val action= UserInformationFragmentDirections.actionGlobalHomeFragment()
-                        findNavController().navigate(action)
-                    }
-                }
-            }
-
+        listOf(
+            binding.devamButton,
+            binding.dogumTarihiEditText
+        ).forEach {
+            it.setOnClickListener(this)
         }
 
+    }
 
-        val dateSetListener = object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, month)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                updateDateInView()
+    private fun updateDateInView(cal : Calendar) {
+        val myFormat = "dd/MM/yyyy"
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        binding.dogumTarihiEditText.setText(sdf.format(cal.time))
+    }
+
+    override fun onClick(v: View?) {
+        when(v){
+            binding.devamButton -> {
+                val isim = binding.isimEditText.text.toString()
+                val soyisim = binding.soyisimEditText.text.toString()
+                val dogum = binding.dogumTarihiEditText.text.toString()
+                val boy = binding.boyEditText.text.toString()
+                val kilo = binding.kiloEditText.text.toString()
+
+                val user = com.mucahit_bedir.fizyoegzersiz.data.User(isim,soyisim,dogum,boy,kilo)
+
+                userInformationFragmentViewModel.setUser(user)
             }
-        }
-
-        binding.dogumTarihiEditText.setOnClickListener(object : View.OnClickListener {
-            @RequiresApi(Build.VERSION_CODES.N)
-            override fun onClick(v: View?) {
+            binding.dogumTarihiEditText -> {
+                val cal = Calendar.getInstance()
                 DatePickerDialog(
                     requireContext(), dateSetListener,
                     cal.get(Calendar.YEAR),
@@ -97,17 +98,17 @@ class UserInformationFragment : Fragment(), View.OnClickListener {
                     cal.get(Calendar.DAY_OF_MONTH)
                 ).show()
             }
-        })
+        }
+
     }
 
-    private fun updateDateInView() {
-        val myFormat = "dd/MM/yyyy"
-        val sdf = SimpleDateFormat(myFormat, Locale.US)
-        binding.dogumTarihiEditText.setText(sdf.format(cal.time))
-    }
-
-    override fun onClick(v: View?) {
-        TODO("Not yet implemjmklented")
+    fun initObserver() {
+        userInformationFragmentViewModel.setUserResponse.observe(viewLifecycleOwner) {
+            if (it){
+                val action= UserInformationFragmentDirections.actionGlobalHomeFragment()
+                findNavController().navigate(action)
+            }
+        }
     }
 
 
