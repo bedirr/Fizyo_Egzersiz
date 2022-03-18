@@ -20,4 +20,7 @@ interface EgzersizDao {
 
     @Query("SELECT * From EgzersizTakvimi WHERE tamamlandimi = :tamamlandimi")
     suspend fun getTamamlandiEgzersizTakvimi(tamamlandimi: Boolean = true): List<EgzersizTakvimi>
+
+    @Query("SELECT * From EgzersizTakvimi WHERE userId = :userId AND tarih = :baslangicTarih OR tarih = :bitisTarih")
+    suspend fun getEgzersizHaftalikListe(userId: String, baslangicTarih: String, bitisTarih: String): List<EgzersizTakvimi>?
 }

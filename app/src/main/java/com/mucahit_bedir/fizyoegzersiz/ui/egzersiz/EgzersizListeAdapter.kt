@@ -26,11 +26,13 @@ class EgzersizListeAdapter(private val listAdapterListener: (EgzersizListeRespon
         fun bind(
             item: EgzersizListeResponse,
             listAdapterListener: (EgzersizListeResponse) -> Unit
-        ) {
+        ) {try {
+
             with(item) {
                 Glide.with(binding.imageview).load(imageURL).into(binding.imageview)
                 binding.titleTextview.text = name
             }
+            }catch (e:Exception){}
             binding.cardviewButton.setOnClickListener {
                 listAdapterListener(item)
             }

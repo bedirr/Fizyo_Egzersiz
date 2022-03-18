@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.*
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mucahit_bedir.fizyoegzersiz.data.ProgramEkle
 import com.mucahit_bedir.fizyoegzersiz.data.local.model.EgzersizTakvimi
@@ -16,6 +17,12 @@ import kotlin.collections.ArrayList
 
 
 class EgzersizViewModel : ViewModel() {
+    private val auth: FirebaseAuth by lazy {
+        FirebaseAuth.getInstance()
+    }
+    private val uid: String by lazy {
+        auth.currentUser?.uid.toString()
+    }
 
     val db = FirebaseFirestore.getInstance()
     lateinit var egzersizRepository: EgzersizRepository
@@ -51,6 +58,7 @@ class EgzersizViewModel : ViewModel() {
                 val calendar = programEkle.baslangicTarih
                 for (i in 0..(programEkle.haftaSayisi * 7)) {
                     val egzersizTakvimi = EgzersizTakvimi(
+                        userId = uid,
                         tarih = calendar.toFormattedYYYYMMDDString(),
                         egzersizAdi = programEkle.egzersiz?.name ?: "",
                         videoURL = programEkle.egzersiz?.videoURL ?: "",

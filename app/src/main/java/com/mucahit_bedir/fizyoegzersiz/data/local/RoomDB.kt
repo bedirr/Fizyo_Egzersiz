@@ -11,7 +11,7 @@ import com.mucahit_bedir.fizyoegzersiz.data.local.model.EgzersizTakvimi
     entities = [
         EgzersizTakvimi::class
     ],
-    version = 1
+    version = 2
 )
 abstract class RoomDB : RoomDatabase() {
 

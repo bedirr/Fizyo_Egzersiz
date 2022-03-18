@@ -5,8 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-(primaryKeys = ["tarih", "egzersizAdi"])
+(primaryKeys = ["tarih", "egzersizAdi","userId"])
 data class EgzersizTakvimi(
+    @ColumnInfo(name = "userId") val userId: String,
     @ColumnInfo(name = "tarih") val tarih: String,
     @ColumnInfo(name = "egzersizAdi") val egzersizAdi: String,
     @ColumnInfo(name = "videoURL") val videoURL: String?,

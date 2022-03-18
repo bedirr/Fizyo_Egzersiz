@@ -89,7 +89,7 @@ data class EgzersizListeResponse(
                             videolar = listOf(
                                 ItemEgzersizler.EgzersizVideo(
                                     name = "",
-                                    imageURL = "",
+                                    imageURL = "https://www.doktorfizik.com/wp-content/uploads/2019/05/sag-omuz-agrisi-nedenleri.jpg",
                                     videoURL = ""
                                 )
                             )
@@ -106,7 +106,7 @@ data class EgzersizListeResponse(
                             videolar = listOf(
                                 ItemEgzersizler.EgzersizVideo(
                                     name = "",
-                                    imageURL = "",
+                                    imageURL = "https://www.doktorfizik.com/wp-content/uploads/2019/05/sag-omuz-agrisi-nedenleri.jpg",
                                     videoURL = ""
                                 )
                             )
@@ -123,7 +123,7 @@ data class EgzersizListeResponse(
                             videolar = listOf(
                                 ItemEgzersizler.EgzersizVideo(
                                     name = "",
-                                    imageURL = "",
+                                    imageURL = "https://www.doktorfizik.com/wp-content/uploads/2019/05/sag-omuz-agrisi-nedenleri.jpg",
                                     videoURL = ""
                                 )
                             )
@@ -140,7 +140,7 @@ data class EgzersizListeResponse(
                             videolar = listOf(
                                 ItemEgzersizler.EgzersizVideo(
                                     name = "",
-                                    imageURL = "",
+                                    imageURL = "https://www.doktorfizik.com/wp-content/uploads/2019/05/sag-omuz-agrisi-nedenleri.jpg",
                                     videoURL = ""
                                 )
                             )
